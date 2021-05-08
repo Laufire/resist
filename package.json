@@ -71,5 +71,8 @@
   "directories": {
     "example": "examples",
     "test": "test"
+  },
+  "dependencies": {
+    "@laufire/utils": "^2.5.5"
   }
 }

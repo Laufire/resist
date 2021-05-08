@@ -1,17 +1,16 @@
 {
   "name": "@laufire/resist",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "React simple state-tree.",
   "main": "index.js",
   "scripts": {
     "start": "npm run build && npm run dev",
-    "build": "rm -rf ./dist && babel --ignore '**/*.spec.js' -d ./dist ./src && npm run copy",
-    "dev": "node -e 'require(\"./dist/index.js\").main()'",
     "test": "jest --no-cache",
+    "build": "rm -rf ./dist && babel --ignore '**/*.spec.js' -d ./dist ./src && npm run copy",
     "lint": "eslint .",
-    "prepare": "npm run lint && npm test && npm run build",
+    "checkAndBuild": "npm run lint && npm test && npm run build",
     "copy": "cp ./package.json ./ReadMe.md ./LICENSE ./dist/",
-    "dist": "npm run prepare && cd dist && npm publish"
+    "dist": "npm run checkAndBuild && cd dist && npm publish"
   },
   "engines": {
     "node": ">=7.6"

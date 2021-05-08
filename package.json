@@ -1,6 +1,6 @@
 {
   "name": "@laufire/resist",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "React simple state-tree.",
   "main": "index.js",
   "scripts": {

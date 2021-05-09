@@ -6,11 +6,11 @@
   "scripts": {
     "start": "npm run build && npm run dev",
     "test": "jest --no-cache",
-    "dist": "npm run checkAndBuild && cd dist && npm publish --access public",
     "build": "rm -rf ./dist && babel --ignore '**/*.spec.js' -d ./dist ./src && npm run copy",
-    "lint": "eslint .",
-    "checkAndBuild": "npm run lint && npm test && npm run build",
-    "copy": "cp ./package.json ./ReadMe.md ./LICENSE ./dist/"
+    "prepareDist": "npm run lint && npm test && npm run build",
+    "dist": "npm run prepareDist && cd dist && npm publish --access public",
+    "copy": "cp ./package.json ./ReadMe.md ./LICENSE ./dist/",
+    "lint": "eslint ."
   },
   "engines": {
     "node": ">=7.6"

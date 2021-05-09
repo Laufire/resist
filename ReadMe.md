@@ -37,5 +37,3 @@ $ sh ./setup.sh
 ## ToDo
 
 * Write tests.
-
-* Make the parameter, getContext.context optional.

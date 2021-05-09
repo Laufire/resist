@@ -4,27 +4,18 @@
 
 import { map, merge, sanitize } from '@laufire/utils/collection';
 
-const updateContext = (context, accessories) => {
-	const { state, setState } = accessories;
+const buildContext = (context, updates) => {
+	merge(context, updates);
 
-	context.state = state;
-	context.setState = setState;
-};
-const buildContext = (context, accessories) => {
-	const { actions } = accessories;
+	context.actions = map(context.actions, (action) => (...args) =>
+		context.setState(sanitize(merge(
+			{}, context.state, action(context, ...args)
+		))));
 
-	merge(context, {
-		...accessories,
-		actions: map(actions, (action) => (...args) =>
-			context.setState(sanitize(merge(
-				{}, context.state, action(context, ...args)
-			)))),
-	});
+	return context;
 };
 
-const getContext = (context, accessories) =>
-	(context.state
-		? updateContext
-		: buildContext)(context, accessories) || context;
+const updateContext = (context, updates) =>
+	(context.state ? merge : buildContext)(context, updates);
 
-export default getContext;
+export default updateContext;

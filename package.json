@@ -1,6 +1,6 @@
 {
   "name": "@laufire/resist",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React simple state-tree.",
   "main": "index.js",
   "scripts": {
@@ -63,7 +63,10 @@
     "setupFilesAfterEnv": [
       "./test/setup/jest.setup.js"
     ],
-    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
     "transform": {
       "^.+\\.js?$": "babel-jest"
     }

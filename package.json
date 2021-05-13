@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run build && npm run dev",
     "test": "jest --no-cache",
+    "dev": "npm run build && cd dist && npm link && cd ..",
     "build": "rm -rf ./dist && babel --ignore '**/*.spec.js' -d ./dist ./src && npm run copy",
     "prepareDist": "npm run lint && npm test && npm run build",
     "dist": "npm run prepareDist && cd dist && npm publish --access public",
@@ -76,6 +77,6 @@
     "test": "test"
   },
   "dependencies": {
-    "@laufire/utils": "^2.5.5"
+    "@laufire/utils": "^2.5.6"
   }
 }

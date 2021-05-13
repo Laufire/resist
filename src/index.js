@@ -2,20 +2,19 @@
 
 // #NOTE: Context could both be imported or passed along.
 
-import { map, merge, sanitize } from '@laufire/utils/collection';
+import { adopt, map, overlay } from '@laufire/utils/collection';
 
 const buildContext = (context, updates) => {
-	merge(context, updates);
+	adopt(context, updates);
 
-	context.actions = map(context.actions, (action) => (...args) =>
-		context.setState(sanitize(merge(
-			{}, context.state, action(context, ...args)
-		))));
-
-	return context;
+	context.actions = map(context.actions, (action) =>
+		(...args) => context.setState((state) =>
+			overlay(
+				{}, state, action({ ...context, state }, ...args)
+			)));
 };
 
 const updateContext = (context, updates) =>
-	(context.state ? merge : buildContext)(context, updates);
+	(context.state ? adopt : buildContext)(context, updates) || context;
 
 export default updateContext;

@@ -2,12 +2,12 @@
 
 // #NOTE: Context could both be imported or passed along.
 
-import { adopt, map, overlay } from '@laufire/utils/collection';
+import { adopt, overlay, traverse } from '@laufire/utils/collection';
 
 const buildContext = (context, updates) => {
 	adopt(context, updates);
 
-	context.actions = map(context.actions, (action) =>
+	context.actions = traverse(context.actions, (action) =>
 		(...args) => context.setState((state) =>
 			overlay(
 				{}, state, action({ ...context, state }, ...args)

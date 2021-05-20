@@ -1,6 +1,6 @@
 # ReSiSt
 
-	React Simple State-tree. A simple lib to help with state management in React.
+	React Simple State-tree. A simple and easy to learn state management framework for React.
 
 ## The `Why`
 
@@ -24,7 +24,7 @@ $ npm install @laufire/resist
 
 ## Notes
 
-* Some notes.
+* Resist is a easy to learn state-management framework for react.
 
 ## Development
 

@@ -8,9 +8,9 @@ const buildContext = (context, updates) => {
 	adopt(context, updates);
 
 	context.actions = traverse(context.actions, (action) =>
-		(...args) => context.setState((state) =>
+		(data) => context.setState((state) =>
 			overlay(
-				{}, state, action({ ...context, state }, ...args)
+				{}, state, action({ ...context, state, data })
 			)));
 };
 

@@ -1,3 +1,6 @@
+settings:
+  react:
+    version: detect
 parser: "babel-eslint"
 parserOptions:
   sourceType: "module"
@@ -11,7 +14,8 @@ env:
   es6: true
   node: true
   jest: true
-extends: 'eslint:recommended'
+extends:
+    - "eslint:recommended"
 rules:
   # Styling
   arrow-body-style: ["error", "as-needed"]
@@ -60,10 +64,10 @@ rules:
   }]
   line-comment-position: ["error", { "position": "above" }]
   lines-around-comment: ["error", {
-		"beforeLineComment": false,
-		"afterLineComment": false,
-		"applyDefaultIgnorePatterns": true,
-		"ignorePattern": "Helpers|Tasks|Exports|Tested|Mocks"
+    "beforeLineComment": false,
+    "afterLineComment": false,
+    "applyDefaultIgnorePatterns": true,
+    "ignorePattern": "Helpers|Tasks|Exports|Tested|Mocks"
   }]
   lines-between-class-members: ["error", "always"]
   linebreak-style: ["error", "unix"]
@@ -169,10 +173,6 @@ rules:
   template-curly-spacing: ["error", "always"]
   yield-star-spacing: ["error", "after"]
   semi: ["error", "always"]
-  sort-keys:
-    - error
-    - asc
-    - caseSensitive: true
   space-before-blocks: error
   space-before-function-paren: error
   space-in-parens: ["error", "never"]

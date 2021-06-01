@@ -207,8 +207,8 @@ rules:
   no-global-assign: ["error", {"exceptions": []}]
   no-func-assign: error
   no-magic-numbers: [error, {
-      "ignore": [0, 1],
-      "ignoreArrayIndexes": true,
+    "ignore": [0, 1, -1],
+    "ignoreArrayIndexes": true,
   }]
   no-restricted-globals: error
   no-shadow: error
